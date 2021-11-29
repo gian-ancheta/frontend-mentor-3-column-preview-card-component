@@ -7,20 +7,18 @@
  * ....elements
  *
  * COMPONENTS
+ * ....cards container
  * ....card
+ * ....learn more links
  *
  * LAYOUT
- * ....grid-center
+ * ....main grid
  *
  * CLASSES
- * ....backgrounds
- * ....borders
+ * ....background colors
+ * ....background images
  * ....colors
- * ....font
- * ....text layout
- * ....sizes
  * ....margins
- * ....paddings
  *
  */
 
@@ -85,8 +83,29 @@ html { font: var(--regular) 15px 'Lexend Deca', sans-serif; }
     #COMPONENTS
 \*----------------------------*/
 
+/* #CARDS CONTAINER */
+.cards {
+    margin-top: 5rem;
+}
+
+@media screen and (min-width: 1440px) {
+    .cards {
+        display: flex;
+        margin-top: 0rem;
+    }
+}
+
+
+
+
+
+/* #CARD */
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: var(--white);
+    max-width: calc(0.9 * var(--mobile));
     padding: 3rem;
 }
 
@@ -101,33 +120,103 @@ html { font: var(--regular) 15px 'Lexend Deca', sans-serif; }
     line-height: 1.8;
 }
 
+.card:first-child { border-radius: 1rem 1rem 0rem 0rem; }
+.card:last-child  { border-radius: 0rem 0rem 1rem 1rem; }
+
+@media screen and (min-width: 1440px) {
+    .card:first-child { border-radius: 1rem 0rem 0rem 1rem; }
+    .card:last-child  { border-radius: 0rem 1rem 1rem 0rem; }
+}
 
 
 
 
+
+/* #LEARN MORE LINKS */
 .learn-more-link {
     display: inline-block;
     background-color: var(--gray);
-    border-radius: 2rem;
     text-decoration: none;
+    margin-top: 2rem;
+    border: 2px solid var(--white);
+    border-radius: 2rem;
     padding: 1rem 3rem;
 }
+
+@media screen and (min-width: 1440px) {
+    .learn-more-link {
+        margin-top: 6rem;
+    }
+
+    .learn-more-link:hover {
+        background-color: hsla(0, 0%, 100%, 0);
+        color: var(--white);
+    }   
+}
+
+
+
+
+
+
+
+
+
 
 /*----------------------------*\
     #LAYOUT
 \*----------------------------*/
 
+/* #MAIN GRID */
+.main-grid {
+    display: grid;
+    place-items: center;
+}
+
+@media screen and (min-width: 1440px) {
+    .main-grid {
+        height: 100vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
 /*----------------------------*\
     #CLASSES
 \*----------------------------*/
 
-/* #BACKGROUNDS */
+/* #BACKGROUND COLORS */
 .background-color-orange    { background-color: var(--orange);    }
 .background-color-cyan      { background-color: var(--cyan);      }
 .background-color-dark-cyan { background-color: var(--dark-cyan); }
+.background-color-gray      { background-color: var(--gray);      }
 
+
+
+
+
+/* #BACKGROUND IMAGES */
 .sedan-img {
     background-image: url(./images/icon-sedans.svg);
+    background-repeat: no-repeat;
+    background-position: left 3rem top 3rem;
+}
+
+.suv-img {
+    background-image: url(./images/icon-suvs.svg);
+    background-repeat: no-repeat;
+    background-position: left 3rem top 3rem;
+}
+
+.luxury-img {
+    background-image: url(./images/icon-luxury.svg);
     background-repeat: no-repeat;
     background-position: left 3rem top 3rem;
 }
@@ -135,8 +224,6 @@ html { font: var(--regular) 15px 'Lexend Deca', sans-serif; }
 
 
 
-
-/* #BORDERS */
 
 /* #COLORS */
 .color-orange    { color: var(--orange);    }
@@ -147,76 +234,6 @@ html { font: var(--regular) 15px 'Lexend Deca', sans-serif; }
 
 
 
-/* #FONT */
-
-/* #TEXT LAYOUT */
-
-/* #SIZES */
-
 /* #MARGINS */
-.margin-0-auto        { margin: 0 auto;        }
-
-.margin-1rem          { margin:        1rem;   }
-.margin-top-1rem      { margin-top:    1rem;   }
-.margin-right-1rem    { margin-right:  1rem;   }
-.margin-bottom-1rem   { margin-bottom: 1rem;   }
-.margin-left-1rem     { margin-left:   1rem;   }
-
-.margin-1-5rem        { margin:        1.5rem; }
-.margin-top-1-5rem    { margin-top:    1.5rem; }
-.margin-right-1-5rem  { margin-right:  1.5rem; }
-.margin-bottom-1-5rem { margin-bottom: 1.5rem; }
-.margin-left-1-5rem   { margin-left:   1.5rem; }
-
-.margin-2rem          { margin:        2rem;   }
 .margin-top-2rem      { margin-top:    2rem;   }
-.margin-right-2rem    { margin-right:  2rem;   }
-.margin-bottom-2rem   { margin-bottom: 2rem;   }
-.margin-left-2rem     { margin-left:   2rem;   }
-
-.margin-3rem          { margin:        3rem;   }
-.margin-top-3rem      { margin-top:    3rem;   }
-.margin-right-3rem    { margin-right:  3rem;   }
-.margin-bottom-3rem   { margin-bottom: 3rem;   }
-.margin-left-3rem     { margin-left:   3rem;   }
-
-.margin-4rem          { margin:        4rem;   }
-.margin-top-4rem      { margin-top:    4rem;   }
-.margin-right-4rem    { margin-right:  4rem;   }
-.margin-bottom-4rem   { margin-bottom: 4rem;   }
-.margin-left-4rem     { margin-left:   4rem;   }
-
-
-
-
-
-/* #PADDINGS */
-.padding-1rem          { padding:        1rem;   }
-.padding-top-1rem      { padding-top:    1rem;   }
-.padding-right-1rem    { padding-right:  1rem;   }
-.padding-bottom-1rem   { padding-bottom: 1rem;   }
-.padding-left-1rem     { padding-left:   1rem;   }
-
-.padding-1-5rem        { padding:        1.5rem; }
-.padding-top-1-5rem    { padding-top:    1.5rem; }
-.padding-right-1-5rem  { padding-right:  1.5rem; }
-.padding-bottom-1-5rem { padding-bottom: 1.5rem; }
-.padding-left-1-5rem   { padding-left:   1.5rem; }
-
-.padding-2rem          { padding:        2rem;   }
-.padding-top-2rem      { padding-top:    2rem;   }
-.padding-right-2rem    { padding-right:  2rem;   }
-.padding-bottom-2rem   { padding-bottom: 2rem;   }
-.padding-left-2rem     { padding-left:   2rem;   }
-
-.padding-3rem          { padding:        3rem;   }
-.padding-top-3rem      { padding-top:    3rem;   }
-.padding-right-3rem    { padding-right:  3rem;   }
-.padding-bottom-3rem   { padding-bottom: 3rem;   }
-.padding-left-3rem     { padding-left:   3rem;   }
-
-.padding-4rem          { padding:        4rem;   }
-.padding-top-4rem      { padding-top:    4rem;   }
-.padding-right-4rem    { padding-right:  4rem;   }
-.padding-bottom-4rem   { padding-bottom: 4rem;   }
-.padding-left-4rem     { padding-left:   4rem;   }
+.margin-top-5rem      { margin-top:    5rem;   }
